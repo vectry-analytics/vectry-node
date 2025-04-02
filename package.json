@@ -1,7 +1,7 @@
 {
   "name": "@vectry/node",
-  "version": "0.1.0",
-  "description": "Concrete Node.js implementation for the Vectry SDK, providing transport and context integration.",
+  "version": "1.0.0",
+  "description": "Node.js SDK for the Vectry Analytics, providing transport and context integration.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -19,7 +19,7 @@
     "nodejs",
     "transport"
   ],
-  "author": "Blackwood Stone Holdings",
+  "author": "Vectry Analytics",
   "license": "MIT",
   "files": [
     "dist"
