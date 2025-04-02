@@ -1,0 +1,38 @@
+{
+  "name": "@vectry/node",
+  "version": "0.1.0",
+  "description": "Concrete Node.js implementation for the Vectry SDK, providing transport and context integration.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "prepare": "npm run build",
+    "lint": "eslint ./src --ext .ts",
+    "test": "echo \"No tests yet\""
+  },
+  "keywords": [
+    "vectry",
+    "event-tracing",
+    "causal-graph",
+    "sdk",
+    "nodejs",
+    "transport"
+  ],
+  "author": "Blackwood Stone Holdings",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@vectry/js-core": "^1.0.0",
+    "axios": "^1.8.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/node": "^20.11.12"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
