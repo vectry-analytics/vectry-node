@@ -1,7 +1,12 @@
-import { defaultConfig, setRuntimeConfig, VectryConfig, VectryCore } from "@vectry/js-core";
+import {
+  defaultConfig,
+  setRuntimeConfig,
+  VectryConfig,
+  VectryCore,
+  detectMutation,
+} from "@vectry/js-core";
 import { HttpTransport } from "../transport/HttpTransport";
 import { DefaultContextProvider } from "../context/DefaultContextProvider";
-
 
 export class Vectry extends VectryCore {
   constructor(config: Partial<VectryConfig>) {
@@ -21,5 +26,12 @@ export class Vectry extends VectryCore {
       transport: mergedConfig.transport!,
       organizationId: mergedConfig.organizationId,
     });
+  }
+
+  static detectMutation(input: {
+    original: Record<string, any>;
+    updated: Record<string, any>;
+  }) {
+    return detectMutation(input);
   }
 }
