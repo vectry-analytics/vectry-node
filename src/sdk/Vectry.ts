@@ -1,6 +1,6 @@
 import {
   defaultConfig,
-  setRuntimeConfig,
+  EnvironmentBaseUrls,
   VectryConfig,
   VectryCore,
 } from "@vectry/js-core";
@@ -9,21 +9,20 @@ import { DefaultContextProvider } from "../context/DefaultContextProvider";
 
 export class Vectry extends VectryCore {
   constructor(config: Partial<VectryConfig>) {
+    const environment = config.environment ?? defaultConfig.environment ?? "prod";
+    const baseUrl = config.baseUrl ?? EnvironmentBaseUrls[environment] ?? defaultConfig.baseUrl;
+
     // Merge the user config with defaults
     const mergedConfig: VectryConfig = {
       ...defaultConfig,
       ...config,
+      environment,
+      baseUrl,
       transport: config.transport ?? new HttpTransport(config),
       contextProvider: config.contextProvider ?? DefaultContextProvider,
     };
 
-    // Set runtime configuration globally for the SDK
-    setRuntimeConfig(mergedConfig);
-
     // Initialize parent class with required fields
-    super({
-      transport: mergedConfig.transport!,
-      organizationId: mergedConfig.organizationId,
-    });
+    super(mergedConfig);
   }
 }
