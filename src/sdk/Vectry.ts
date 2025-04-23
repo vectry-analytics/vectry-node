@@ -9,8 +9,8 @@ import { DefaultContextProvider } from "../context/DefaultContextProvider";
 
 export class Vectry extends VectryCore {
   constructor(config: Partial<VectryConfig>) {
-    const environment = config.environment ?? defaultConfig.environment ?? "prod";
-    const baseUrl = config.baseUrl ?? EnvironmentBaseUrls[environment] ?? defaultConfig.baseUrl;
+    const environment = config.environment || defaultConfig.environment || "prod";
+    const baseUrl = config.baseUrl || EnvironmentBaseUrls[environment] || defaultConfig.baseUrl;
 
     // Merge the user config with defaults
     const mergedConfig: VectryConfig = {
