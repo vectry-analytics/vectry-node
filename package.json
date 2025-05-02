@@ -25,7 +25,7 @@
     "dist"
   ],
   "dependencies": {
-    "@vectry/js-core": "^1.0.17",
+    "@vectry/js-core": "^1.0.18",
     "axios": "^1.8.4"
   },
   "devDependencies": {
